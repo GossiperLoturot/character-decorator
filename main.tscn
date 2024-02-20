@@ -1,6 +1,11 @@
-[gd_scene load_steps=2 format=3 uid="uid://c0eh527yekitw"]
+[gd_scene load_steps=7 format=3 uid="uid://c0eh527yekitw"]
 
 [ext_resource type="Theme" uid="uid://fqsmqojxkx0v" path="res://theme.tres" id="1_dlikr"]
+[ext_resource type="Texture2D" uid="uid://dlky6rrrov60q" path="res://img/hairback0.png" id="2_jy46l"]
+[ext_resource type="Texture2D" uid="uid://dn0fu6k642wtr" path="res://img/base0.png" id="2_rf5ty"]
+[ext_resource type="Texture2D" uid="uid://c4ylyturq6pv5" path="res://img/eye0.png" id="4_4jt43"]
+[ext_resource type="Texture2D" uid="uid://d3gmtlupbrgcq" path="res://img/clothes0.png" id="4_m7eu4"]
+[ext_resource type="Texture2D" uid="uid://df053mmtrkmod" path="res://img/hairfront0.png" id="5_f8p4b"]
 
 [node name="Control" type="Control"]
 layout_mode = 3
@@ -21,6 +26,7 @@ grow_vertical = 2
 
 [node name="Control" type="Control" parent="."]
 layout_mode = 1
+anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 offset_left = 16.0
@@ -35,3 +41,39 @@ layout_mode = 2
 offset_right = 258.0
 offset_bottom = 20.0
 text = "Character Sprite Decorator"
+
+[node name="Control" type="Control" parent="Control"]
+texture_filter = 1
+anchors_preset = 0
+offset_top = 64.0
+offset_bottom = 64.0
+
+[node name="Hairback" type="TextureRect" parent="Control/Control"]
+layout_mode = 0
+offset_right = 64.0
+offset_bottom = 96.0
+texture = ExtResource("2_jy46l")
+
+[node name="Base" type="TextureRect" parent="Control/Control"]
+layout_mode = 0
+offset_right = 64.0
+offset_bottom = 96.0
+texture = ExtResource("2_rf5ty")
+
+[node name="Clothes" type="TextureRect" parent="Control/Control"]
+layout_mode = 0
+offset_right = 64.0
+offset_bottom = 96.0
+texture = ExtResource("4_m7eu4")
+
+[node name="Eye" type="TextureRect" parent="Control/Control"]
+layout_mode = 0
+offset_right = 64.0
+offset_bottom = 96.0
+texture = ExtResource("4_4jt43")
+
+[node name="Hairfront" type="TextureRect" parent="Control/Control"]
+layout_mode = 0
+offset_right = 64.0
+offset_bottom = 96.0
+texture = ExtResource("5_f8p4b")
