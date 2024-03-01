@@ -3,12 +3,12 @@
 importer="font_data_dynamic"
 type="FontFile"
 uid="uid://cfawfrkv3nka"
-path="res://.godot/imported/0xProto-Regular.ttf-762f3a82d12c5d2d9fdcd9003bcd5c77.fontdata"
+path="res://.godot/imported/0xProtoRegular.ttf-783abfd7d3a580689ccaecfc48655b7c.fontdata"
 
 [deps]
 
-source_file="res://0xProto-Regular.ttf"
-dest_files=["res://.godot/imported/0xProto-Regular.ttf-762f3a82d12c5d2d9fdcd9003bcd5c77.fontdata"]
+source_file="res://0xProtoRegular.ttf"
+dest_files=["res://.godot/imported/0xProtoRegular.ttf-783abfd7d3a580689ccaecfc48655b7c.fontdata"]
 
 [params]
 
