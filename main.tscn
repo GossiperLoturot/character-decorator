@@ -1,9 +1,10 @@
-[gd_scene load_steps=9 format=3 uid="uid://c0eh527yekitw"]
+[gd_scene load_steps=10 format=3 uid="uid://c0eh527yekitw"]
 
 [ext_resource type="Theme" uid="uid://fqsmqojxkx0v" path="res://theme.tres" id="1_dlikr"]
 [ext_resource type="Texture2D" uid="uid://dqrq34d7t37aa" path="res://img/hairback00.png" id="2_8u8bk"]
 [ext_resource type="Texture2D" uid="uid://jnfyfnhvf08m" path="res://img/base00.png" id="3_fv7tn"]
 [ext_resource type="Texture2D" uid="uid://dy21673qfuiut" path="res://img/top00.png" id="4_2gngr"]
+[ext_resource type="Texture2D" uid="uid://b8brcoehuhn0q" path="res://img/face00.png" id="4_3un07"]
 [ext_resource type="Texture2D" uid="uid://cl2050d70rcm" path="res://img/bottom00.png" id="5_pa7ho"]
 [ext_resource type="Texture2D" uid="uid://t4j78afoxemc" path="res://img/feets00.png" id="6_sx0n8"]
 [ext_resource type="Texture2D" uid="uid://66dxj5u5scv6" path="res://img/hairfront00.png" id="7_0boob"]
@@ -50,7 +51,7 @@ anchors_preset = 0
 offset_top = 64.0
 offset_bottom = 64.0
 
-[node name="Hairback" type="TextureRect" parent="Control/Control"]
+[node name="Hair" type="TextureRect" parent="Control/Control"]
 layout_mode = 0
 offset_right = 64.0
 offset_bottom = 96.0
@@ -62,17 +63,23 @@ offset_right = 64.0
 offset_bottom = 96.0
 texture = ExtResource("3_fv7tn")
 
+[node name="Face" type="TextureRect" parent="Control/Control"]
+layout_mode = 0
+offset_right = 64.0
+offset_bottom = 96.0
+texture = ExtResource("4_3un07")
+
+[node name="Bottom" type="TextureRect" parent="Control/Control"]
+layout_mode = 0
+offset_right = 192.0
+offset_bottom = 192.0
+texture = ExtResource("5_pa7ho")
+
 [node name="Top" type="TextureRect" parent="Control/Control"]
 layout_mode = 0
 offset_right = 64.0
 offset_bottom = 96.0
 texture = ExtResource("4_2gngr")
-
-[node name="Bottom" type="TextureRect" parent="Control/Control"]
-layout_mode = 0
-offset_right = 64.0
-offset_bottom = 96.0
-texture = ExtResource("5_pa7ho")
 
 [node name="Feets" type="TextureRect" parent="Control/Control"]
 layout_mode = 0
@@ -80,11 +87,18 @@ offset_right = 64.0
 offset_bottom = 96.0
 texture = ExtResource("6_sx0n8")
 
-[node name="Hairfront" type="TextureRect" parent="Control/Control"]
+[node name="Hairmask" type="TextureRect" parent="Control/Control"]
+clip_children = 1
 layout_mode = 0
 offset_right = 64.0
 offset_bottom = 96.0
 texture = ExtResource("7_0boob")
+
+[node name="Hair" type="TextureRect" parent="Control/Control/Hairmask"]
+layout_mode = 0
+offset_right = 192.0
+offset_bottom = 192.0
+texture = ExtResource("2_8u8bk")
 
 [node name="Eye" type="TextureRect" parent="Control/Control"]
 layout_mode = 0
