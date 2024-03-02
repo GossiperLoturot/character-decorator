@@ -1,15 +1,8 @@
-[gd_scene load_steps=11 format=3 uid="uid://c0eh527yekitw"]
+[gd_scene load_steps=4 format=3 uid="uid://c0eh527yekitw"]
 
 [ext_resource type="Theme" uid="uid://fqsmqojxkx0v" path="res://theme.tres" id="1_dlikr"]
-[ext_resource type="Texture2D" uid="uid://dqrq34d7t37aa" path="res://img/hairback00.png" id="2_8u8bk"]
-[ext_resource type="Texture2D" uid="uid://jnfyfnhvf08m" path="res://img/base00.png" id="3_fv7tn"]
-[ext_resource type="Texture2D" uid="uid://dy21673qfuiut" path="res://img/top00.png" id="4_2gngr"]
-[ext_resource type="Texture2D" uid="uid://b8brcoehuhn0q" path="res://img/face00.png" id="4_3un07"]
-[ext_resource type="Texture2D" uid="uid://cl2050d70rcm" path="res://img/bottom00.png" id="5_pa7ho"]
-[ext_resource type="Texture2D" uid="uid://t4j78afoxemc" path="res://img/feets00.png" id="6_sx0n8"]
-[ext_resource type="Texture2D" uid="uid://66dxj5u5scv6" path="res://img/hairfront00.png" id="7_0boob"]
-[ext_resource type="Texture2D" uid="uid://d1knh0cnhm8ro" path="res://img/eye00.png" id="8_rnr68"]
-[ext_resource type="Script" path="res://character_component.gd" id="10_8i1nd"]
+[ext_resource type="Script" path="res://character.gd" id="2_rwdd0"]
+[ext_resource type="Script" path="res://character_maker.gd" id="3_65j6f"]
 
 [node name="Control" type="Control"]
 layout_mode = 3
@@ -49,43 +42,7 @@ text = "Character Sprite Decorator"
 [node name="Node2D" type="Node2D" parent="Control"]
 texture_filter = 1
 position = Vector2(0, 64)
+script = ExtResource("2_rwdd0")
 
-[node name="Hairback" type="AnimatedSprite2D" parent="Control/Node2D"]
-centered = false
-script = ExtResource("10_8i1nd")
-texture = ExtResource("2_8u8bk")
-
-[node name="Base" type="AnimatedSprite2D" parent="Control/Node2D"]
-centered = false
-script = ExtResource("10_8i1nd")
-texture = ExtResource("3_fv7tn")
-
-[node name="Face" type="AnimatedSprite2D" parent="Control/Node2D"]
-centered = false
-script = ExtResource("10_8i1nd")
-texture = ExtResource("4_3un07")
-
-[node name="Bottom" type="AnimatedSprite2D" parent="Control/Node2D"]
-centered = false
-script = ExtResource("10_8i1nd")
-texture = ExtResource("5_pa7ho")
-
-[node name="Top" type="AnimatedSprite2D" parent="Control/Node2D"]
-centered = false
-script = ExtResource("10_8i1nd")
-texture = ExtResource("4_2gngr")
-
-[node name="Feets" type="AnimatedSprite2D" parent="Control/Node2D"]
-centered = false
-script = ExtResource("10_8i1nd")
-texture = ExtResource("6_sx0n8")
-
-[node name="Hairfront" type="AnimatedSprite2D" parent="Control/Node2D"]
-centered = false
-script = ExtResource("10_8i1nd")
-texture = ExtResource("7_0boob")
-
-[node name="Eye" type="AnimatedSprite2D" parent="Control/Node2D"]
-centered = false
-script = ExtResource("10_8i1nd")
-texture = ExtResource("8_rnr68")
+[node name="Node" type="Node" parent="Control"]
+script = ExtResource("3_65j6f")
