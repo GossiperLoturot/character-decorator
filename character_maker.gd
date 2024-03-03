@@ -32,6 +32,9 @@ func _ready():
 			load("res://img/top01.png"),
 			load("res://img/top02.png"),
 		],
+		"face": [
+			load("res://img/face00.png"),
+		],
 		"feets": [
 			load("res://img/feets00.png"),
 			load("res://img/feets01.png"),
@@ -41,7 +44,6 @@ func _ready():
 			load("res://img/eyes00.png"),
 			load("res://img/eyes01.png"),
 			load("res://img/eyes02.png"),
-			load("res://img/eyes03.png"),
 		],
 		"hairfront": [
 			load("res://img/hairfront00.png"),
@@ -70,12 +72,44 @@ func _ready():
 		"hairback": 0,
 	}
 	
-	character = $"../Node2D"
+	character = $Character
 	
 	update_character_texture()
+	
+	$Fragments/Bottom/NextButton.connect("pressed", next_character_texture.bind("bottom"))
+	$Fragments/Bottom/PrevButton.connect("pressed", prev_character_texture.bind("bottom"))
+	$Fragments/Top/NextButton.connect("pressed", next_character_texture.bind("top"))
+	$Fragments/Top/PrevButton.connect("pressed", prev_character_texture.bind("top"))
+	$Fragments/Feets/NextButton.connect("pressed", next_character_texture.bind("feets"))
+	$Fragments/Feets/PrevButton.connect("pressed", prev_character_texture.bind("feets"))
+	$Fragments/Face/NextButton.connect("pressed", next_character_texture.bind("face"))
+	$Fragments/Face/PrevButton.connect("pressed", prev_character_texture.bind("face"))
+	$Fragments/Eyes/NextButton.connect("pressed", next_character_texture.bind("eyes"))
+	$Fragments/Eyes/PrevButton.connect("pressed", prev_character_texture.bind("eyes"))
+	$Fragments/Hair/NextButton.connect("pressed", func ():
+		next_character_texture("hairfront")
+		next_character_texture("hairback")
+	)
+	$Fragments/Hair/PrevButton.connect("pressed", func():
+		prev_character_texture("hairfront")
+		prev_character_texture("hairback")
+	)
+
 
 func update_character_texture():
 	for name in fragment_names:
-		var idx = fragment_idx[name]
-		var textures = fragment_res[name]
-		character.call("set_character_texture", name, textures[idx])	
+		var idx := fragment_idx[name] as int
+		var textures := fragment_res[name] as Array
+		character.call("set_character_texture", name, textures[idx])
+
+
+func next_character_texture(fragment_name: String):
+	var size := fragment_res[fragment_name].size() as int
+	fragment_idx[fragment_name] = clamp(fragment_idx[fragment_name] + 1, 0, size - 1)
+	update_character_texture()
+	
+
+func prev_character_texture(fragment_name: String):
+	var size := fragment_res[fragment_name].size() as int
+	fragment_idx[fragment_name] = clamp(fragment_idx[fragment_name] - 1, 0, size - 1)
+	update_character_texture()

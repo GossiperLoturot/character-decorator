@@ -32,6 +32,7 @@ offset_right = -16.0
 offset_bottom = -16.0
 grow_horizontal = 2
 grow_vertical = 2
+script = ExtResource("3_65j6f")
 
 [node name="Label" type="Label" parent="Control"]
 layout_mode = 2
@@ -39,10 +40,117 @@ offset_right = 258.0
 offset_bottom = 20.0
 text = "Character Sprite Decorator"
 
-[node name="Node2D" type="Node2D" parent="Control"]
+[node name="Character" type="Node2D" parent="Control"]
 texture_filter = 1
-position = Vector2(0, 64)
+position = Vector2(64, 128)
+scale = Vector2(2, 2)
 script = ExtResource("2_rwdd0")
 
-[node name="Node" type="Node" parent="Control"]
-script = ExtResource("3_65j6f")
+[node name="Fragments" type="VBoxContainer" parent="Control"]
+layout_mode = 0
+offset_left = 196.0
+offset_top = 64.0
+offset_right = 324.0
+offset_bottom = 104.0
+
+[node name="Bottom" type="HBoxContainer" parent="Control/Fragments"]
+layout_mode = 2
+
+[node name="PrevButton" type="Button" parent="Control/Fragments/Bottom"]
+layout_mode = 2
+text = "<"
+
+[node name="Label" type="Label" parent="Control/Fragments/Bottom"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Bottom"
+horizontal_alignment = 1
+
+[node name="NextButton" type="Button" parent="Control/Fragments/Bottom"]
+layout_mode = 2
+text = ">"
+
+[node name="Top" type="HBoxContainer" parent="Control/Fragments"]
+layout_mode = 2
+
+[node name="PrevButton" type="Button" parent="Control/Fragments/Top"]
+layout_mode = 2
+text = "<"
+
+[node name="Label" type="Label" parent="Control/Fragments/Top"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Top"
+horizontal_alignment = 1
+
+[node name="NextButton" type="Button" parent="Control/Fragments/Top"]
+layout_mode = 2
+text = ">"
+
+[node name="Feets" type="HBoxContainer" parent="Control/Fragments"]
+layout_mode = 2
+
+[node name="PrevButton" type="Button" parent="Control/Fragments/Feets"]
+layout_mode = 2
+text = "<"
+
+[node name="Label" type="Label" parent="Control/Fragments/Feets"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Feets"
+horizontal_alignment = 1
+
+[node name="NextButton" type="Button" parent="Control/Fragments/Feets"]
+layout_mode = 2
+text = ">"
+
+[node name="Face" type="HBoxContainer" parent="Control/Fragments"]
+layout_mode = 2
+
+[node name="PrevButton" type="Button" parent="Control/Fragments/Face"]
+layout_mode = 2
+text = "<"
+
+[node name="Label" type="Label" parent="Control/Fragments/Face"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Face"
+horizontal_alignment = 1
+
+[node name="NextButton" type="Button" parent="Control/Fragments/Face"]
+layout_mode = 2
+text = ">"
+
+[node name="Eyes" type="HBoxContainer" parent="Control/Fragments"]
+layout_mode = 2
+
+[node name="PrevButton" type="Button" parent="Control/Fragments/Eyes"]
+layout_mode = 2
+text = "<"
+
+[node name="Label" type="Label" parent="Control/Fragments/Eyes"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Eyes"
+horizontal_alignment = 1
+
+[node name="NextButton" type="Button" parent="Control/Fragments/Eyes"]
+layout_mode = 2
+text = ">"
+
+[node name="Hair" type="HBoxContainer" parent="Control/Fragments"]
+layout_mode = 2
+
+[node name="PrevButton" type="Button" parent="Control/Fragments/Hair"]
+layout_mode = 2
+text = "<"
+
+[node name="Label" type="Label" parent="Control/Fragments/Hair"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Hair"
+horizontal_alignment = 1
+
+[node name="NextButton" type="Button" parent="Control/Fragments/Hair"]
+layout_mode = 2
+text = ">"
