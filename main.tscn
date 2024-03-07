@@ -1,10 +1,9 @@
-[gd_scene load_steps=4 format=3 uid="uid://c0eh527yekitw"]
+[gd_scene load_steps=3 format=3 uid="uid://c0eh527yekitw"]
 
 [ext_resource type="Theme" uid="uid://fqsmqojxkx0v" path="res://theme.tres" id="1_dlikr"]
-[ext_resource type="Script" path="res://character.gd" id="2_rwdd0"]
-[ext_resource type="Script" path="res://character_maker.gd" id="3_65j6f"]
+[ext_resource type="PackedScene" uid="uid://iurnn12ppaut" path="res://component/select_button.tscn" id="2_jnm4n"]
 
-[node name="Control" type="Control"]
+[node name="Root" type="Control"]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -21,136 +20,60 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="Control" type="Control" parent="."]
+[node name="Container" type="VBoxContainer" parent="."]
+custom_minimum_size = Vector2(512, 0)
 layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
+anchors_preset = -1
+anchor_left = 0.5
+anchor_right = 0.5
 anchor_bottom = 1.0
-offset_left = 16.0
 offset_top = 16.0
-offset_right = -16.0
 offset_bottom = -16.0
 grow_horizontal = 2
 grow_vertical = 2
-script = ExtResource("3_65j6f")
 
-[node name="Label" type="Label" parent="Control"]
+[node name="Title" type="Label" parent="Container"]
 layout_mode = 2
-offset_right = 258.0
-offset_bottom = 20.0
+theme_override_font_sizes/font_size = 24
 text = "Character Sprite Decorator"
 
-[node name="Character" type="Node2D" parent="Control"]
-texture_filter = 1
-position = Vector2(64, 128)
-scale = Vector2(2, 2)
-script = ExtResource("2_rwdd0")
+[node name="Description" type="Label" parent="Container"]
+layout_mode = 2
+text = "下のインターフェスを操作することでキャラクターの見た目を自由に変更できます。"
 
-[node name="Fragments" type="VBoxContainer" parent="Control"]
-layout_mode = 0
-offset_left = 196.0
-offset_top = 64.0
-offset_right = 324.0
-offset_bottom = 104.0
-
-[node name="Bottom" type="HBoxContainer" parent="Control/Fragments"]
+[node name="Body" type="HBoxContainer" parent="Container"]
 layout_mode = 2
 
-[node name="PrevButton" type="Button" parent="Control/Fragments/Bottom"]
-layout_mode = 2
-text = "<"
-
-[node name="Label" type="Label" parent="Control/Fragments/Bottom"]
+[node name="Interface" type="VBoxContainer" parent="Container/Body"]
 layout_mode = 2
 size_flags_horizontal = 3
-text = "Bottom"
-horizontal_alignment = 1
 
-[node name="NextButton" type="Button" parent="Control/Fragments/Bottom"]
+[node name="Type" type="Label" parent="Container/Body/Interface"]
 layout_mode = 2
-text = ">"
+text = "Type"
 
-[node name="Top" type="HBoxContainer" parent="Control/Fragments"]
+[node name="Hair Select Button" parent="Container/Body/Interface" instance=ExtResource("2_jnm4n")]
 layout_mode = 2
 
-[node name="PrevButton" type="Button" parent="Control/Fragments/Top"]
-layout_mode = 2
-text = "<"
-
-[node name="Label" type="Label" parent="Control/Fragments/Top"]
-layout_mode = 2
-size_flags_horizontal = 3
-text = "Top"
-horizontal_alignment = 1
-
-[node name="NextButton" type="Button" parent="Control/Fragments/Top"]
-layout_mode = 2
-text = ">"
-
-[node name="Feets" type="HBoxContainer" parent="Control/Fragments"]
+[node name="Eyes Select Button" parent="Container/Body/Interface" instance=ExtResource("2_jnm4n")]
 layout_mode = 2
 
-[node name="PrevButton" type="Button" parent="Control/Fragments/Feets"]
-layout_mode = 2
-text = "<"
-
-[node name="Label" type="Label" parent="Control/Fragments/Feets"]
-layout_mode = 2
-size_flags_horizontal = 3
-text = "Feets"
-horizontal_alignment = 1
-
-[node name="NextButton" type="Button" parent="Control/Fragments/Feets"]
-layout_mode = 2
-text = ">"
-
-[node name="Face" type="HBoxContainer" parent="Control/Fragments"]
+[node name="Face Select Button" parent="Container/Body/Interface" instance=ExtResource("2_jnm4n")]
 layout_mode = 2
 
-[node name="PrevButton" type="Button" parent="Control/Fragments/Face"]
-layout_mode = 2
-text = "<"
-
-[node name="Label" type="Label" parent="Control/Fragments/Face"]
-layout_mode = 2
-size_flags_horizontal = 3
-text = "Face"
-horizontal_alignment = 1
-
-[node name="NextButton" type="Button" parent="Control/Fragments/Face"]
-layout_mode = 2
-text = ">"
-
-[node name="Eyes" type="HBoxContainer" parent="Control/Fragments"]
+[node name="Top Select Button" parent="Container/Body/Interface" instance=ExtResource("2_jnm4n")]
 layout_mode = 2
 
-[node name="PrevButton" type="Button" parent="Control/Fragments/Eyes"]
-layout_mode = 2
-text = "<"
-
-[node name="Label" type="Label" parent="Control/Fragments/Eyes"]
-layout_mode = 2
-size_flags_horizontal = 3
-text = "Eyes"
-horizontal_alignment = 1
-
-[node name="NextButton" type="Button" parent="Control/Fragments/Eyes"]
-layout_mode = 2
-text = ">"
-
-[node name="Hair" type="HBoxContainer" parent="Control/Fragments"]
+[node name="Bottom Select Button" parent="Container/Body/Interface" instance=ExtResource("2_jnm4n")]
 layout_mode = 2
 
-[node name="PrevButton" type="Button" parent="Control/Fragments/Hair"]
+[node name="Feets Select Button" parent="Container/Body/Interface" instance=ExtResource("2_jnm4n")]
 layout_mode = 2
-text = "<"
 
-[node name="Label" type="Label" parent="Control/Fragments/Hair"]
+[node name="Color" type="Label" parent="Container/Body/Interface"]
 layout_mode = 2
-size_flags_horizontal = 3
-text = "Hair"
-horizontal_alignment = 1
+text = "Color"
 
-[node name="NextButton" type="Button" parent="Control/Fragments/Hair"]
+[node name="View" type="Control" parent="Container/Body"]
+custom_minimum_size = Vector2(256, 256)
 layout_mode = 2
-text = ">"
