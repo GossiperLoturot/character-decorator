@@ -2,14 +2,14 @@
 
 [ext_resource type="Script" path="res://scripts/select_button.gd" id="1_5s3kw"]
 
-[node name="Select Button" type="HBoxContainer" node_paths=PackedStringArray("label", "left_button", "right_button")]
+[node name="SelectButton" type="HBoxContainer" node_paths=PackedStringArray("label", "left_button", "right_button")]
 custom_minimum_size = Vector2(0, 32)
 script = ExtResource("1_5s3kw")
 label = NodePath("Label")
-left_button = NodePath("Left Button")
-right_button = NodePath("Right Button")
+left_button = NodePath("LeftButton")
+right_button = NodePath("RightButton")
 
-[node name="Left Button" type="Button" parent="."]
+[node name="LeftButton" type="Button" parent="."]
 layout_mode = 2
 text = "<"
 
@@ -19,6 +19,6 @@ size_flags_horizontal = 3
 text = "None"
 horizontal_alignment = 1
 
-[node name="Right Button" type="Button" parent="."]
+[node name="RightButton" type="Button" parent="."]
 layout_mode = 2
 text = ">"

@@ -1,15 +1,20 @@
-[gd_scene load_steps=7 format=3 uid="uid://c0eh527yekitw"]
+[gd_scene load_steps=9 format=3 uid="uid://c0eh527yekitw"]
 
 [ext_resource type="Theme" uid="uid://fqsmqojxkx0v" path="res://theme.tres" id="1_xsa7r"]
 [ext_resource type="PackedScene" uid="uid://iurnn12ppaut" path="res://scenes/select_button.tscn" id="2_7uvr4"]
 [ext_resource type="Script" path="res://scripts/main.gd" id="2_ocsdt"]
 [ext_resource type="Script" path="res://scripts/character.gd" id="3_ctge5"]
-[ext_resource type="Resource" uid="uid://bv405trxotcoq" path="res://character_resource.tres" id="4_ikphk"]
+[ext_resource type="Shader" path="res://character.gdshader" id="4_2xkq5"]
+[ext_resource type="Resource" uid="uid://c60j2l21cpjqe" path="res://character_resource.tres" id="6_jar7v"]
 
 [sub_resource type="ViewportTexture" id="ViewportTexture_wog4e"]
 viewport_path = NodePath("SubViewport")
 
-[node name="Root" type="Control" node_paths=PackedStringArray("character", "hair_select_button", "eyes_select_button", "face_select_button", "top_select_button", "bottom_select_button", "feets_select_button")]
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_afs6o"]
+shader = ExtResource("4_2xkq5")
+shader_parameter/channel = Vector3(1, 0, 0)
+
+[node name="Root" type="Control" node_paths=PackedStringArray("character", "hair_type_select_button", "eyes_type_select_button", "face_type_select_button", "top_type_select_button", "bottom_type_select_button", "feets_type_select_button", "base_color_select_button", "hair_color_select_button", "eyes_color_select_button", "top_color_select_button", "bottom_color_select_button", "feets_color_select_button", "default_animation_button", "idle_animation_button", "walk_animation_button")]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -19,12 +24,21 @@ grow_vertical = 2
 theme = ExtResource("1_xsa7r")
 script = ExtResource("2_ocsdt")
 character = NodePath("SubViewport/Character")
-hair_select_button = NodePath("Container/Body/Interface/Hair Select Button")
-eyes_select_button = NodePath("Container/Body/Interface/Eyes Select Button")
-face_select_button = NodePath("Container/Body/Interface/Face Select Button")
-top_select_button = NodePath("Container/Body/Interface/Top Select Button")
-bottom_select_button = NodePath("Container/Body/Interface/Bottom Select Button")
-feets_select_button = NodePath("Container/Body/Interface/Feets Select Button")
+hair_type_select_button = NodePath("Container/Body/InterfaceContainer/Interface/HairTypeSelectButton")
+eyes_type_select_button = NodePath("Container/Body/InterfaceContainer/Interface/EyesTypeSelectButton")
+face_type_select_button = NodePath("Container/Body/InterfaceContainer/Interface/FaceTypeSelectButton")
+top_type_select_button = NodePath("Container/Body/InterfaceContainer/Interface/TopTypeSelectButton")
+bottom_type_select_button = NodePath("Container/Body/InterfaceContainer/Interface/BottomTypeSelectButton")
+feets_type_select_button = NodePath("Container/Body/InterfaceContainer/Interface/FeetsTypeSelectButton")
+base_color_select_button = NodePath("Container/Body/InterfaceContainer/Interface/BaseColorSelectButton")
+hair_color_select_button = NodePath("Container/Body/InterfaceContainer/Interface/HairColorSelectButton")
+eyes_color_select_button = NodePath("Container/Body/InterfaceContainer/Interface/EyesColorSelectButton")
+top_color_select_button = NodePath("Container/Body/InterfaceContainer/Interface/TopColorSelectButton")
+bottom_color_select_button = NodePath("Container/Body/InterfaceContainer/Interface/BottomColorSelectButton")
+feets_color_select_button = NodePath("Container/Body/InterfaceContainer/Interface/FeetsColorSelectButton")
+default_animation_button = NodePath("Container/Body/InterfaceContainer/Interface/DefaultAnimationButton")
+idle_animation_button = NodePath("Container/Body/InterfaceContainer/Interface/IdleAnimationButton")
+walk_animation_button = NodePath("Container/Body/InterfaceContainer/Interface/WalkAnimationButton")
 
 [node name="Panel" type="Panel" parent="."]
 layout_mode = 1
@@ -57,40 +71,84 @@ text = "下のインターフェスを操作することでキャラクターの
 
 [node name="Body" type="HBoxContainer" parent="Container"]
 layout_mode = 2
+size_flags_vertical = 3
 
-[node name="Interface" type="VBoxContainer" parent="Container/Body"]
+[node name="InterfaceContainer" type="ScrollContainer" parent="Container/Body"]
+layout_mode = 2
+size_flags_horizontal = 3
+horizontal_scroll_mode = 0
+
+[node name="Interface" type="VBoxContainer" parent="Container/Body/InterfaceContainer"]
 layout_mode = 2
 size_flags_horizontal = 3
 
-[node name="Type" type="Label" parent="Container/Body/Interface"]
+[node name="Type" type="Label" parent="Container/Body/InterfaceContainer/Interface"]
 layout_mode = 2
 text = "Type"
 
-[node name="Hair Select Button" parent="Container/Body/Interface" instance=ExtResource("2_7uvr4")]
+[node name="HairTypeSelectButton" parent="Container/Body/InterfaceContainer/Interface" instance=ExtResource("2_7uvr4")]
 layout_mode = 2
 
-[node name="Eyes Select Button" parent="Container/Body/Interface" instance=ExtResource("2_7uvr4")]
+[node name="EyesTypeSelectButton" parent="Container/Body/InterfaceContainer/Interface" instance=ExtResource("2_7uvr4")]
 layout_mode = 2
 
-[node name="Face Select Button" parent="Container/Body/Interface" instance=ExtResource("2_7uvr4")]
+[node name="FaceTypeSelectButton" parent="Container/Body/InterfaceContainer/Interface" instance=ExtResource("2_7uvr4")]
 layout_mode = 2
 
-[node name="Top Select Button" parent="Container/Body/Interface" instance=ExtResource("2_7uvr4")]
+[node name="TopTypeSelectButton" parent="Container/Body/InterfaceContainer/Interface" instance=ExtResource("2_7uvr4")]
 layout_mode = 2
 
-[node name="Bottom Select Button" parent="Container/Body/Interface" instance=ExtResource("2_7uvr4")]
+[node name="BottomTypeSelectButton" parent="Container/Body/InterfaceContainer/Interface" instance=ExtResource("2_7uvr4")]
 layout_mode = 2
 
-[node name="Feets Select Button" parent="Container/Body/Interface" instance=ExtResource("2_7uvr4")]
+[node name="FeetsTypeSelectButton" parent="Container/Body/InterfaceContainer/Interface" instance=ExtResource("2_7uvr4")]
 layout_mode = 2
 
-[node name="Color" type="Label" parent="Container/Body/Interface"]
+[node name="Color" type="Label" parent="Container/Body/InterfaceContainer/Interface"]
 layout_mode = 2
 text = "Color"
+
+[node name="BaseColorSelectButton" parent="Container/Body/InterfaceContainer/Interface" instance=ExtResource("2_7uvr4")]
+layout_mode = 2
+
+[node name="HairColorSelectButton" parent="Container/Body/InterfaceContainer/Interface" instance=ExtResource("2_7uvr4")]
+layout_mode = 2
+
+[node name="EyesColorSelectButton" parent="Container/Body/InterfaceContainer/Interface" instance=ExtResource("2_7uvr4")]
+layout_mode = 2
+
+[node name="TopColorSelectButton" parent="Container/Body/InterfaceContainer/Interface" instance=ExtResource("2_7uvr4")]
+layout_mode = 2
+
+[node name="BottomColorSelectButton" parent="Container/Body/InterfaceContainer/Interface" instance=ExtResource("2_7uvr4")]
+layout_mode = 2
+
+[node name="FeetsColorSelectButton" parent="Container/Body/InterfaceContainer/Interface" instance=ExtResource("2_7uvr4")]
+layout_mode = 2
+
+[node name="Animation" type="Label" parent="Container/Body/InterfaceContainer/Interface"]
+layout_mode = 2
+text = "Animation"
+
+[node name="DefaultAnimationButton" type="Button" parent="Container/Body/InterfaceContainer/Interface"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Default"
+
+[node name="IdleAnimationButton" type="Button" parent="Container/Body/InterfaceContainer/Interface"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Idle"
+
+[node name="WalkAnimationButton" type="Button" parent="Container/Body/InterfaceContainer/Interface"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Walk"
 
 [node name="View" type="TextureRect" parent="Container/Body"]
 layout_mode = 2
 texture = SubResource("ViewportTexture_wog4e")
+stretch_mode = 2
 
 [node name="SubViewport" type="SubViewport" parent="."]
 transparent_bg = true
@@ -101,5 +159,6 @@ zoom = Vector2(3, 3)
 
 [node name="Character" type="Node2D" parent="SubViewport"]
 texture_filter = 1
+material = SubResource("ShaderMaterial_afs6o")
 script = ExtResource("3_ctge5")
-resource = ExtResource("4_ikphk")
+resource = ExtResource("6_jar7v")

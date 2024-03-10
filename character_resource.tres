@@ -1,4 +1,4 @@
-[gd_resource type="Resource" script_class="CharacterResource" load_steps=66 format=3 uid="uid://bv405trxotcoq"]
+[gd_resource type="Resource" script_class="CharacterResource" load_steps=115 format=3 uid="uid://c60j2l21cpjqe"]
 
 [ext_resource type="Script" path="res://scripts/character_frag.gd" id="1_wjtjp"]
 [ext_resource type="Texture2D" uid="uid://dqrq34d7t37aa" path="res://images/hairback00.png" id="2_qi8p2"]
@@ -8,6 +8,7 @@
 [ext_resource type="Texture2D" uid="uid://lqitke2nc0oa" path="res://images/hairback04.png" id="6_uqm75"]
 [ext_resource type="Texture2D" uid="uid://bgjs2s10kkh41" path="res://images/hairback05.png" id="7_ckjef"]
 [ext_resource type="Script" path="res://scripts/character_part.gd" id="7_gl80j"]
+[ext_resource type="Script" path="res://scripts/character_grad.gd" id="8_5lfd0"]
 [ext_resource type="Texture2D" uid="uid://jnfyfnhvf08m" path="res://images/base00.png" id="8_7wom8"]
 [ext_resource type="Texture2D" uid="uid://b8brcoehuhn0q" path="res://images/face00.png" id="9_h2a8w"]
 [ext_resource type="Texture2D" uid="uid://d1knh0cnhm8ro" path="res://images/eyes00.png" id="10_sycll"]
@@ -31,181 +32,402 @@
 [ext_resource type="Script" path="res://scripts/character_resource.gd" id="27_pbhkn"]
 [ext_resource type="Texture2D" uid="uid://cgty0sxbccsic" path="res://images/hairfront05.png" id="31_hr03y"]
 
-[sub_resource type="Resource" id="Resource_3ew1g"]
+[sub_resource type="Resource" id="Resource_7u41n"]
 script = ExtResource("1_wjtjp")
 name = "hairback00"
 texture = ExtResource("2_qi8p2")
 
-[sub_resource type="Resource" id="Resource_tx7yd"]
+[sub_resource type="Resource" id="Resource_52edo"]
 script = ExtResource("1_wjtjp")
 name = "hairback01"
 texture = ExtResource("3_remq3")
 
-[sub_resource type="Resource" id="Resource_1bun4"]
+[sub_resource type="Resource" id="Resource_50xn8"]
 script = ExtResource("1_wjtjp")
 name = "hairback02"
 texture = ExtResource("4_0vlq7")
 
-[sub_resource type="Resource" id="Resource_s7amq"]
+[sub_resource type="Resource" id="Resource_53mls"]
 script = ExtResource("1_wjtjp")
 name = "hairback03"
 texture = ExtResource("5_3njhd")
 
-[sub_resource type="Resource" id="Resource_hdhhv"]
+[sub_resource type="Resource" id="Resource_n8gms"]
 script = ExtResource("1_wjtjp")
 name = "hairback04"
 texture = ExtResource("6_uqm75")
 
-[sub_resource type="Resource" id="Resource_g621t"]
+[sub_resource type="Resource" id="Resource_mesaf"]
 script = ExtResource("1_wjtjp")
 name = "hairback05"
 texture = ExtResource("7_ckjef")
 
-[sub_resource type="Resource" id="Resource_wmmxo"]
+[sub_resource type="Gradient" id="Gradient_b28nf"]
+offsets = PackedFloat32Array(0, 0.25, 0.5, 0.75, 1)
+colors = PackedColorArray(0.690196, 0.411765, 0.45098, 1, 0.878431, 0.576471, 0.560784, 1, 0.964706, 0.745098, 0.67451, 1, 0.992157, 0.823529, 0.72549, 1, 0.996078, 0.901961, 0.862745, 1)
+
+[sub_resource type="Resource" id="Resource_0hxm3"]
+script = ExtResource("8_5lfd0")
+name = "color00"
+gradient = SubResource("Gradient_b28nf")
+
+[sub_resource type="Gradient" id="Gradient_h4bbe"]
+offsets = PackedFloat32Array(0, 0.25, 0.5, 0.75, 1)
+colors = PackedColorArray(0.811765, 0.486275, 0.321569, 1, 0.960784, 0.678431, 0.415686, 1, 1, 0.858824, 0.564706, 1, 1, 0.945098, 0.643137, 1, 1, 1, 0.796078, 1)
+
+[sub_resource type="Resource" id="Resource_jj1kf"]
+script = ExtResource("8_5lfd0")
+name = "color01"
+gradient = SubResource("Gradient_h4bbe")
+
+[sub_resource type="Gradient" id="Gradient_hrw7i"]
+offsets = PackedFloat32Array(0, 0.25, 0.5, 0.75, 1)
+colors = PackedColorArray(0.690196, 0.411765, 0.545098, 1, 0.878431, 0.560784, 0.65098, 1, 0.964706, 0.67451, 0.701961, 1, 0.992157, 0.733333, 0.72549, 1, 0.996078, 0.862745, 0.866667, 1)
+
+[sub_resource type="Resource" id="Resource_onp3j"]
+script = ExtResource("8_5lfd0")
+name = "color02"
+gradient = SubResource("Gradient_hrw7i")
+
+[sub_resource type="Gradient" id="Gradient_rsqdl"]
+offsets = PackedFloat32Array(0, 0.25, 0.5, 0.75, 1)
+colors = PackedColorArray(0.458824, 0.411765, 0.690196, 1, 0.678431, 0.560784, 0.878431, 1, 0.835294, 0.67451, 0.964706, 1, 0.909804, 0.72549, 0.992157, 1, 0.945098, 0.862745, 0.996078, 1)
+
+[sub_resource type="Resource" id="Resource_y268k"]
+script = ExtResource("8_5lfd0")
+name = "color03"
+gradient = SubResource("Gradient_rsqdl")
+
+[sub_resource type="Resource" id="Resource_riid1"]
 script = ExtResource("7_gl80j")
 name = "hairback"
-frags = Array[ExtResource("1_wjtjp")]([SubResource("Resource_3ew1g"), SubResource("Resource_tx7yd"), SubResource("Resource_1bun4"), SubResource("Resource_s7amq"), SubResource("Resource_hdhhv"), SubResource("Resource_g621t")])
+frags = Array[ExtResource("1_wjtjp")]([SubResource("Resource_7u41n"), SubResource("Resource_52edo"), SubResource("Resource_50xn8"), SubResource("Resource_53mls"), SubResource("Resource_n8gms"), SubResource("Resource_mesaf")])
+grads = Array[ExtResource("8_5lfd0")]([SubResource("Resource_0hxm3"), SubResource("Resource_jj1kf"), SubResource("Resource_onp3j"), SubResource("Resource_y268k")])
 
-[sub_resource type="Resource" id="Resource_33km1"]
+[sub_resource type="Resource" id="Resource_pea8f"]
 script = ExtResource("1_wjtjp")
 name = "base00"
 texture = ExtResource("8_7wom8")
 
-[sub_resource type="Resource" id="Resource_a1s6y"]
+[sub_resource type="Gradient" id="Gradient_b2dyg"]
+offsets = PackedFloat32Array(0, 0.25, 0.5, 0.75, 1)
+colors = PackedColorArray(0.639216, 0.321569, 0.364706, 1, 0.929412, 0.654902, 0.615686, 1, 0.964706, 0.745098, 0.67451, 1, 0.996078, 0.901961, 0.862745, 1, 1, 0.94902, 0.929412, 1)
+
+[sub_resource type="Resource" id="Resource_6vbjl"]
+script = ExtResource("8_5lfd0")
+name = "color00"
+gradient = SubResource("Gradient_b2dyg")
+
+[sub_resource type="Gradient" id="Gradient_bgk6t"]
+offsets = PackedFloat32Array(0, 0.25, 0.5, 0.75, 1)
+colors = PackedColorArray(0.384314, 0.282353, 0.298039, 1, 0.682353, 0.427451, 0.392157, 1, 0.729412, 0.490196, 0.411765, 1, 0.8, 0.584314, 0.494118, 1, 0.85098, 0.631373, 0.54902, 1)
+
+[sub_resource type="Resource" id="Resource_lrdg0"]
+script = ExtResource("8_5lfd0")
+name = "color01"
+gradient = SubResource("Gradient_bgk6t")
+
+[sub_resource type="Gradient" id="Gradient_r82vf"]
+offsets = PackedFloat32Array(0, 0.25, 0.5, 0.75, 1)
+colors = PackedColorArray(0.25098, 0.227451, 0.231373, 1, 0.427451, 0.356863, 0.345098, 1, 0.458824, 0.384314, 0.360784, 1, 0.529412, 0.439216, 0.4, 1, 0.580392, 0.482353, 0.447059, 1)
+
+[sub_resource type="Resource" id="Resource_mxxnt"]
+script = ExtResource("8_5lfd0")
+name = "color02"
+gradient = SubResource("Gradient_r82vf")
+
+[sub_resource type="Resource" id="Resource_yh4tw"]
 script = ExtResource("7_gl80j")
 name = "base"
-frags = Array[ExtResource("1_wjtjp")]([SubResource("Resource_33km1")])
+frags = Array[ExtResource("1_wjtjp")]([SubResource("Resource_pea8f")])
+grads = Array[ExtResource("8_5lfd0")]([SubResource("Resource_6vbjl"), SubResource("Resource_lrdg0"), SubResource("Resource_mxxnt")])
 
-[sub_resource type="Resource" id="Resource_kqmcj"]
+[sub_resource type="Resource" id="Resource_jw3py"]
 script = ExtResource("1_wjtjp")
 name = "face00"
 texture = ExtResource("9_h2a8w")
 
-[sub_resource type="Resource" id="Resource_esnnh"]
+[sub_resource type="Resource" id="Resource_jnpio"]
 script = ExtResource("1_wjtjp")
 name = "face01"
 texture = ExtResource("11_rq28f")
 
-[sub_resource type="Resource" id="Resource_a0nhm"]
+[sub_resource type="Gradient" id="Gradient_h7xk6"]
+colors = PackedColorArray(1, 0.760784, 0.709804, 1, 1, 0.878431, 0.792157, 1)
+
+[sub_resource type="Resource" id="Resource_c5wid"]
+script = ExtResource("8_5lfd0")
+name = "color00"
+gradient = SubResource("Gradient_h7xk6")
+
+[sub_resource type="Gradient" id="Gradient_4r13d"]
+colors = PackedColorArray(0.756863, 0.494118, 0.439216, 1, 0.788235, 0.537255, 0.482353, 1)
+
+[sub_resource type="Resource" id="Resource_44vrj"]
+script = ExtResource("8_5lfd0")
+name = "color01"
+gradient = SubResource("Gradient_4r13d")
+
+[sub_resource type="Gradient" id="Gradient_y2k5d"]
+colors = PackedColorArray(0.529412, 0.380392, 0.380392, 1, 0.564706, 0.431373, 0.431373, 1)
+
+[sub_resource type="Resource" id="Resource_sumqx"]
+script = ExtResource("8_5lfd0")
+name = "color02"
+gradient = SubResource("Gradient_y2k5d")
+
+[sub_resource type="Resource" id="Resource_wlnqx"]
 script = ExtResource("7_gl80j")
 name = "face"
-frags = Array[ExtResource("1_wjtjp")]([SubResource("Resource_kqmcj"), SubResource("Resource_esnnh")])
+frags = Array[ExtResource("1_wjtjp")]([SubResource("Resource_jw3py"), SubResource("Resource_jnpio")])
+grads = Array[ExtResource("8_5lfd0")]([SubResource("Resource_c5wid"), SubResource("Resource_44vrj"), SubResource("Resource_sumqx")])
 
-[sub_resource type="Resource" id="Resource_8nugi"]
+[sub_resource type="Resource" id="Resource_8300k"]
 script = ExtResource("1_wjtjp")
 name = "eyes00"
 texture = ExtResource("10_sycll")
 
-[sub_resource type="Resource" id="Resource_3bdfv"]
+[sub_resource type="Resource" id="Resource_05tvv"]
 script = ExtResource("1_wjtjp")
 name = "eyes01"
 texture = ExtResource("11_277nn")
 
-[sub_resource type="Resource" id="Resource_gundt"]
+[sub_resource type="Resource" id="Resource_2g1e8"]
 script = ExtResource("1_wjtjp")
 name = "eyes02"
 texture = ExtResource("12_rkicl")
 
-[sub_resource type="Resource" id="Resource_lonvg"]
-script = ExtResource("7_gl80j")
-name = "eye"
-frags = Array[ExtResource("1_wjtjp")]([SubResource("Resource_8nugi"), SubResource("Resource_3bdfv"), SubResource("Resource_gundt")])
+[sub_resource type="Gradient" id="Gradient_oj1vh"]
+offsets = PackedFloat32Array(0, 0.125, 0.25, 0.375, 0.5, 0.625, 0.75, 0.875, 1)
+colors = PackedColorArray(0.0784314, 0.0862745, 0.12549, 1, 0.172549, 0.184314, 0.231373, 1, 0.376471, 0.235294, 0.282353, 1, 0.121569, 0.266667, 0.490196, 1, 0.552941, 0.6, 0.776471, 1, 0.231373, 0.580392, 0.815686, 1, 0.168627, 0.72549, 0.956863, 1, 0.839216, 0.839216, 0.921569, 1, 0.996078, 0.988235, 0.988235, 1)
 
-[sub_resource type="Resource" id="Resource_gfhl8"]
+[sub_resource type="Resource" id="Resource_shr68"]
+script = ExtResource("8_5lfd0")
+name = "color00"
+gradient = SubResource("Gradient_oj1vh")
+
+[sub_resource type="Gradient" id="Gradient_n67w0"]
+offsets = PackedFloat32Array(0, 0.125, 0.25, 0.375, 0.5, 0.625, 0.75, 0.875, 1)
+colors = PackedColorArray(0.0784314, 0.0862745, 0.12549, 1, 0.172549, 0.184314, 0.231373, 1, 0.376471, 0.235294, 0.282353, 1, 0.121569, 0.407843, 0.490196, 1, 0.552941, 0.686275, 0.776471, 1, 0.0784314, 0.780392, 0.741176, 1, 0.168627, 0.956863, 0.886275, 1, 0.839216, 0.839216, 0.921569, 1, 0.996078, 0.988235, 0.988235, 1)
+
+[sub_resource type="Resource" id="Resource_p5x8l"]
+script = ExtResource("8_5lfd0")
+name = "color01"
+gradient = SubResource("Gradient_n67w0")
+
+[sub_resource type="Gradient" id="Gradient_doi1k"]
+offsets = PackedFloat32Array(0, 0.125, 0.25, 0.375, 0.5, 0.625, 0.75, 0.875, 1)
+colors = PackedColorArray(0.0784314, 0.0862745, 0.12549, 1, 0.172549, 0.184314, 0.231373, 1, 0.376471, 0.235294, 0.282353, 1, 0.121569, 0.490196, 0.407843, 1, 0.552941, 0.776471, 0.768627, 1, 0.0784314, 0.780392, 0.431373, 1, 0.168627, 0.956863, 0.537255, 1, 0.839216, 0.839216, 0.921569, 1, 0.996078, 0.988235, 0.988235, 1)
+
+[sub_resource type="Resource" id="Resource_g65xa"]
+script = ExtResource("8_5lfd0")
+name = "color02"
+gradient = SubResource("Gradient_doi1k")
+
+[sub_resource type="Gradient" id="Gradient_ffbvl"]
+offsets = PackedFloat32Array(0, 0.125, 0.25, 0.375, 0.5, 0.625, 0.75, 0.875, 1)
+colors = PackedColorArray(0.0784314, 0.0862745, 0.12549, 1, 0.172549, 0.184314, 0.231373, 1, 0.376471, 0.235294, 0.282353, 1, 0.258824, 0.490196, 0.121569, 1, 0.596078, 0.776471, 0.552941, 1, 0.533333, 0.780392, 0.0784314, 1, 0.705882, 0.956863, 0.168627, 1, 0.839216, 0.839216, 0.921569, 1, 0.996078, 0.988235, 0.988235, 1)
+
+[sub_resource type="Resource" id="Resource_agmq4"]
+script = ExtResource("8_5lfd0")
+name = "color03"
+gradient = SubResource("Gradient_ffbvl")
+
+[sub_resource type="Gradient" id="Gradient_72w7q"]
+offsets = PackedFloat32Array(0, 0.125, 0.25, 0.375, 0.5, 0.625, 0.75, 0.875, 1)
+colors = PackedColorArray(0.0784314, 0.0862745, 0.12549, 1, 0.172549, 0.184314, 0.231373, 1, 0.376471, 0.235294, 0.282353, 1, 0.490196, 0.486275, 0.121569, 1, 0.737255, 0.776471, 0.552941, 1, 0.780392, 0.580392, 0.0784314, 1, 0.956863, 0.701961, 0.168627, 1, 0.839216, 0.839216, 0.921569, 1, 0.996078, 0.988235, 0.988235, 1)
+
+[sub_resource type="Resource" id="Resource_fmf10"]
+script = ExtResource("8_5lfd0")
+name = "color04"
+gradient = SubResource("Gradient_72w7q")
+
+[sub_resource type="Gradient" id="Gradient_vc8me"]
+offsets = PackedFloat32Array(0, 0.125, 0.25, 0.375, 0.5, 0.625, 0.75, 0.875, 1)
+colors = PackedColorArray(0.0784314, 0.0862745, 0.12549, 1, 0.172549, 0.184314, 0.231373, 1, 0.376471, 0.235294, 0.282353, 1, 0.490196, 0.121569, 0.490196, 1, 0.776471, 0.552941, 0.737255, 1, 0.584314, 0.0784314, 0.780392, 1, 0.709804, 0.168627, 0.956863, 1, 0.839216, 0.839216, 0.921569, 1, 0.996078, 0.988235, 0.988235, 1)
+
+[sub_resource type="Resource" id="Resource_bf3mu"]
+script = ExtResource("8_5lfd0")
+name = "color05"
+gradient = SubResource("Gradient_vc8me")
+
+[sub_resource type="Gradient" id="Gradient_8gluo"]
+offsets = PackedFloat32Array(0, 0.125, 0.25, 0.375, 0.5, 0.625, 0.75, 0.875, 1)
+colors = PackedColorArray(0.0784314, 0.0862745, 0.12549, 1, 0.172549, 0.184314, 0.231373, 1, 0.376471, 0.235294, 0.282353, 1, 0.490196, 0.129412, 0.121569, 1, 0.776471, 0.6, 0.552941, 1, 0.780392, 0.0784314, 0.254902, 1, 0.956863, 0.168627, 0.396078, 1, 0.839216, 0.839216, 0.921569, 1, 0.996078, 0.988235, 0.988235, 1)
+
+[sub_resource type="Resource" id="Resource_p0t3w"]
+script = ExtResource("8_5lfd0")
+name = "color06"
+gradient = SubResource("Gradient_8gluo")
+
+[sub_resource type="Resource" id="Resource_v3ddb"]
+script = ExtResource("7_gl80j")
+name = "eyes"
+frags = Array[ExtResource("1_wjtjp")]([SubResource("Resource_8300k"), SubResource("Resource_05tvv"), SubResource("Resource_2g1e8")])
+grads = Array[ExtResource("8_5lfd0")]([SubResource("Resource_shr68"), SubResource("Resource_p5x8l"), SubResource("Resource_g65xa"), SubResource("Resource_agmq4"), SubResource("Resource_fmf10"), SubResource("Resource_bf3mu"), SubResource("Resource_p0t3w")])
+
+[sub_resource type="Resource" id="Resource_dg3qi"]
 script = ExtResource("1_wjtjp")
 name = "feets00"
 texture = ExtResource("13_kiwql")
 
-[sub_resource type="Resource" id="Resource_o16ye"]
+[sub_resource type="Resource" id="Resource_1oqe0"]
 script = ExtResource("1_wjtjp")
 name = "feets01"
 texture = ExtResource("14_q5sk8")
 
-[sub_resource type="Resource" id="Resource_fv7jy"]
+[sub_resource type="Resource" id="Resource_3n3hn"]
 script = ExtResource("1_wjtjp")
 name = "feets02"
 texture = ExtResource("15_b3dss")
 
-[sub_resource type="Resource" id="Resource_kr54w"]
+[sub_resource type="Gradient" id="Gradient_tx3ei"]
+offsets = PackedFloat32Array(0, 0.5, 1)
+colors = PackedColorArray(0.129412, 0.113725, 0.152941, 1, 0.176471, 0.160784, 0.215686, 1, 0.286275, 0.247059, 0.294118, 1)
+
+[sub_resource type="Resource" id="Resource_xwbmw"]
+script = ExtResource("8_5lfd0")
+name = "color00"
+gradient = SubResource("Gradient_tx3ei")
+
+[sub_resource type="Resource" id="Resource_03ilt"]
 script = ExtResource("7_gl80j")
 name = "feets"
-frags = Array[ExtResource("1_wjtjp")]([SubResource("Resource_gfhl8"), SubResource("Resource_o16ye"), SubResource("Resource_fv7jy")])
+frags = Array[ExtResource("1_wjtjp")]([SubResource("Resource_dg3qi"), SubResource("Resource_1oqe0"), SubResource("Resource_3n3hn")])
+grads = Array[ExtResource("8_5lfd0")]([SubResource("Resource_xwbmw")])
 
-[sub_resource type="Resource" id="Resource_yh25k"]
+[sub_resource type="Resource" id="Resource_i8l54"]
 script = ExtResource("1_wjtjp")
 name = "bottom00"
 texture = ExtResource("16_dmhcw")
 
-[sub_resource type="Resource" id="Resource_uwyd1"]
+[sub_resource type="Resource" id="Resource_8n1ua"]
 script = ExtResource("1_wjtjp")
 name = "bottom01"
 texture = ExtResource("17_q84vh")
 
-[sub_resource type="Resource" id="Resource_5heul"]
+[sub_resource type="Resource" id="Resource_ed264"]
 script = ExtResource("1_wjtjp")
 name = "bottom02"
 texture = ExtResource("18_w5s7n")
 
-[sub_resource type="Resource" id="Resource_geghu"]
+[sub_resource type="Gradient" id="Gradient_t4cg8"]
+offsets = PackedFloat32Array(0, 0.25, 0.5, 0.75, 1)
+colors = PackedColorArray(0.329412, 0.329412, 0.478431, 1, 0.572549, 0.552941, 0.698039, 1, 0.741176, 0.729412, 0.85098, 1, 0.831373, 0.823529, 0.898039, 1, 0.929412, 0.929412, 0.945098, 1)
+
+[sub_resource type="Resource" id="Resource_2ow0c"]
+script = ExtResource("8_5lfd0")
+name = "color00"
+gradient = SubResource("Gradient_t4cg8")
+
+[sub_resource type="Resource" id="Resource_7ihvv"]
 script = ExtResource("7_gl80j")
 name = "bottom"
-frags = Array[ExtResource("1_wjtjp")]([SubResource("Resource_yh25k"), SubResource("Resource_uwyd1"), SubResource("Resource_5heul")])
+frags = Array[ExtResource("1_wjtjp")]([SubResource("Resource_i8l54"), SubResource("Resource_8n1ua"), SubResource("Resource_ed264")])
+grads = Array[ExtResource("8_5lfd0")]([SubResource("Resource_2ow0c")])
 
-[sub_resource type="Resource" id="Resource_7eqfm"]
+[sub_resource type="Resource" id="Resource_awovf"]
 script = ExtResource("1_wjtjp")
 name = "top00"
 texture = ExtResource("19_k23bn")
 
-[sub_resource type="Resource" id="Resource_ynuyh"]
+[sub_resource type="Resource" id="Resource_mlr6w"]
 script = ExtResource("1_wjtjp")
 name = "top01"
 texture = ExtResource("20_lfwle")
 
-[sub_resource type="Resource" id="Resource_aelq2"]
+[sub_resource type="Resource" id="Resource_qiw8c"]
 script = ExtResource("1_wjtjp")
 name = "top02"
 texture = ExtResource("21_fmlk0")
 
-[sub_resource type="Resource" id="Resource_fs1i8"]
+[sub_resource type="Gradient" id="Gradient_5r0iw"]
+offsets = PackedFloat32Array(0, 0.25, 0.5, 0.75, 1)
+colors = PackedColorArray(0.329412, 0.329412, 0.478431, 1, 0.572549, 0.552941, 0.698039, 1, 0.741176, 0.729412, 0.85098, 1, 0.831373, 0.823529, 0.898039, 1, 0.929412, 0.929412, 0.945098, 1)
+
+[sub_resource type="Resource" id="Resource_gxo8w"]
+script = ExtResource("8_5lfd0")
+name = "color00"
+gradient = SubResource("Gradient_5r0iw")
+
+[sub_resource type="Resource" id="Resource_bfrte"]
 script = ExtResource("7_gl80j")
 name = "top"
-frags = Array[ExtResource("1_wjtjp")]([SubResource("Resource_7eqfm"), SubResource("Resource_ynuyh"), SubResource("Resource_aelq2")])
+frags = Array[ExtResource("1_wjtjp")]([SubResource("Resource_awovf"), SubResource("Resource_mlr6w"), SubResource("Resource_qiw8c")])
+grads = Array[ExtResource("8_5lfd0")]([SubResource("Resource_gxo8w")])
 
-[sub_resource type="Resource" id="Resource_0fb8j"]
+[sub_resource type="Resource" id="Resource_eo562"]
 script = ExtResource("1_wjtjp")
 name = "hairfront00"
 texture = ExtResource("22_p5dsq")
 
-[sub_resource type="Resource" id="Resource_wcbcg"]
+[sub_resource type="Resource" id="Resource_4ty60"]
 script = ExtResource("1_wjtjp")
 name = "hairfront01"
 texture = ExtResource("23_rar7u")
 
-[sub_resource type="Resource" id="Resource_e7av7"]
+[sub_resource type="Resource" id="Resource_1cad0"]
 script = ExtResource("1_wjtjp")
 name = "hairfront02"
 texture = ExtResource("24_agsg8")
 
-[sub_resource type="Resource" id="Resource_8a0ut"]
+[sub_resource type="Resource" id="Resource_f0k60"]
 script = ExtResource("1_wjtjp")
 name = "hairfront03"
 texture = ExtResource("25_wioor")
 
-[sub_resource type="Resource" id="Resource_dr1r3"]
+[sub_resource type="Resource" id="Resource_bvcvl"]
 script = ExtResource("1_wjtjp")
 name = "hairfront04"
 texture = ExtResource("26_y42n3")
 
-[sub_resource type="Resource" id="Resource_skfsh"]
+[sub_resource type="Resource" id="Resource_82bue"]
 script = ExtResource("1_wjtjp")
 name = "hairfront05"
 texture = ExtResource("31_hr03y")
 
-[sub_resource type="Resource" id="Resource_7i1fc"]
+[sub_resource type="Gradient" id="Gradient_ii5xx"]
+offsets = PackedFloat32Array(0, 0.25, 0.5, 0.75, 1)
+colors = PackedColorArray(0.690196, 0.411765, 0.45098, 1, 0.878431, 0.576471, 0.560784, 1, 0.964706, 0.745098, 0.67451, 1, 0.992157, 0.823529, 0.72549, 1, 0.996078, 0.901961, 0.862745, 1)
+
+[sub_resource type="Resource" id="Resource_71cin"]
+script = ExtResource("8_5lfd0")
+name = "color00"
+gradient = SubResource("Gradient_ii5xx")
+
+[sub_resource type="Gradient" id="Gradient_6bwiq"]
+offsets = PackedFloat32Array(0, 0.25, 0.5, 0.75, 1)
+colors = PackedColorArray(0.811765, 0.486275, 0.321569, 1, 0.960784, 0.678431, 0.415686, 1, 1, 0.858824, 0.564706, 1, 1, 0.945098, 0.643137, 1, 1, 1, 0.796078, 1)
+
+[sub_resource type="Resource" id="Resource_xrkn5"]
+script = ExtResource("8_5lfd0")
+name = "color01"
+gradient = SubResource("Gradient_6bwiq")
+
+[sub_resource type="Gradient" id="Gradient_n4gp8"]
+offsets = PackedFloat32Array(0, 0.25, 0.5, 0.75, 1)
+colors = PackedColorArray(0.690196, 0.411765, 0.545098, 1, 0.878431, 0.560784, 0.65098, 1, 0.964706, 0.67451, 0.701961, 1, 0.992157, 0.733333, 0.72549, 1, 0.996078, 0.862745, 0.866667, 1)
+
+[sub_resource type="Resource" id="Resource_nd6w3"]
+script = ExtResource("8_5lfd0")
+name = "color02"
+gradient = SubResource("Gradient_n4gp8")
+
+[sub_resource type="Gradient" id="Gradient_euvoi"]
+offsets = PackedFloat32Array(0, 0.25, 0.5, 0.75, 1)
+colors = PackedColorArray(0.458824, 0.411765, 0.690196, 1, 0.678431, 0.560784, 0.878431, 1, 0.835294, 0.67451, 0.964706, 1, 0.909804, 0.72549, 0.992157, 1, 0.945098, 0.862745, 0.996078, 1)
+
+[sub_resource type="Resource" id="Resource_hmhst"]
+script = ExtResource("8_5lfd0")
+name = "color03"
+gradient = SubResource("Gradient_euvoi")
+
+[sub_resource type="Resource" id="Resource_syqwo"]
 script = ExtResource("7_gl80j")
 name = "hairfront"
-frags = Array[ExtResource("1_wjtjp")]([SubResource("Resource_0fb8j"), SubResource("Resource_wcbcg"), SubResource("Resource_e7av7"), SubResource("Resource_8a0ut"), SubResource("Resource_dr1r3"), SubResource("Resource_skfsh")])
+frags = Array[ExtResource("1_wjtjp")]([SubResource("Resource_eo562"), SubResource("Resource_4ty60"), SubResource("Resource_1cad0"), SubResource("Resource_f0k60"), SubResource("Resource_bvcvl"), SubResource("Resource_82bue")])
+grads = Array[ExtResource("8_5lfd0")]([SubResource("Resource_71cin"), SubResource("Resource_xrkn5"), SubResource("Resource_nd6w3"), SubResource("Resource_hmhst")])
 
 [resource]
 script = ExtResource("27_pbhkn")
-parts = Array[ExtResource("7_gl80j")]([SubResource("Resource_wmmxo"), SubResource("Resource_a1s6y"), SubResource("Resource_a0nhm"), SubResource("Resource_lonvg"), SubResource("Resource_kr54w"), SubResource("Resource_geghu"), SubResource("Resource_fs1i8"), SubResource("Resource_7i1fc")])
+parts = Array[ExtResource("7_gl80j")]([SubResource("Resource_riid1"), SubResource("Resource_yh4tw"), SubResource("Resource_wlnqx"), SubResource("Resource_v3ddb"), SubResource("Resource_03ilt"), SubResource("Resource_7ihvv"), SubResource("Resource_bfrte"), SubResource("Resource_syqwo")])
