@@ -1,1 +1,1 @@
-# character-sprite-decorator
+# character-decorator

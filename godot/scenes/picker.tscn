@@ -1,0 +1,24 @@
+[gd_scene load_steps=2 format=3 uid="uid://iurnn12ppaut"]
+
+[ext_resource type="Script" path="res://scripts/picker.gd" id="1_5s3kw"]
+
+[node name="SelectButton" type="HBoxContainer" node_paths=PackedStringArray("label", "left_button", "right_button")]
+custom_minimum_size = Vector2(0, 32)
+script = ExtResource("1_5s3kw")
+label = NodePath("Label")
+left_button = NodePath("LeftButton")
+right_button = NodePath("RightButton")
+
+[node name="LeftButton" type="Button" parent="."]
+layout_mode = 2
+text = "<"
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "None"
+horizontal_alignment = 1
+
+[node name="RightButton" type="Button" parent="."]
+layout_mode = 2
+text = ">"
