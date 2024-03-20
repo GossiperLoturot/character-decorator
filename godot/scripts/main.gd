@@ -28,12 +28,12 @@ func _ready():
 	bottom_picker.set_property("Bottom: %s", 3)
 	feets_picker.set_property("Feets: %s", 3)
 	
-	base_picker.on_change.connect(update_character.unbind(1))
-	hair_picker.on_change.connect(update_character.unbind(1))
-	eyes_picker.on_change.connect(update_character.unbind(1))
-	top_picker.on_change.connect(update_character.unbind(1))
-	bottom_picker.on_change.connect(update_character.unbind(1))
-	feets_picker.on_change.connect(update_character.unbind(1))
+	base_picker.pick_changed.connect(update_character)
+	hair_picker.pick_changed.connect(update_character)
+	eyes_picker.pick_changed.connect(update_character)
+	top_picker.pick_changed.connect(update_character)
+	bottom_picker.pick_changed.connect(update_character)
+	feets_picker.pick_changed.connect(update_character)
 	
 	default_button.pressed.connect(func(): character.play("default"))
 	idle_button.pressed.connect(func(): character.play("idle"))
@@ -49,21 +49,21 @@ func update_character():
 	var name = ""
 	
 	name = ["hairback00", "hairback01", "hairback02", "hairback03", "hairback04"][hair_picker.index()]
-	_builder.add_pick(name, 0.0, 0.0, 0.0)
+	_builder.add_pick(name, hair_picker.l() * 0.01, hair_picker.c() * 0.01, hair_picker.h())
 	name = ["base00", "base01"][base_picker.index()]
-	_builder.add_pick(name, 0.0, 0.0, 0.0)
+	_builder.add_pick(name, base_picker.l() * 0.01, base_picker.c() * 0.01, base_picker.h())
 	name = ["eyes00", "eyes01", "eyes02"][eyes_picker.index()]
 	_builder.add_pick(name, 0.0, 0.0, 0.0)
 	name = ["iris00", "iris01", "iris02"][eyes_picker.index()]
-	_builder.add_pick(name, 0.0, 0.0, 0.0)
+	_builder.add_pick(name, eyes_picker.l() * 0.01, eyes_picker.c() * 0.01, eyes_picker.h())
 	name = ["bottom00", "bottom01", "bottom02"][bottom_picker.index()]
-	_builder.add_pick(name, 0.0, 0.0, 0.0)
+	_builder.add_pick(name, bottom_picker.l() * 0.01, bottom_picker.c() * 0.01, bottom_picker.h())
 	name = ["top00", "top01", "top02"][top_picker.index()]
-	_builder.add_pick(name, 0.0, 0.0, 0.0)
+	_builder.add_pick(name, top_picker.l() * 0.01, top_picker.c() * 0.01, top_picker.h())
 	name = ["feets00", "feets01", "feets02"][feets_picker.index()]
-	_builder.add_pick(name, 0.0, 0.0, 0.0)
+	_builder.add_pick(name, feets_picker.l() * 0.01, feets_picker.c() * 0.01, feets_picker.h())
 	name = ["hairfront00", "hairfront01", "hairfront02", "hairfront03", "hairfront04"][hair_picker.index()]
-	_builder.add_pick(name, 0.0, 0.0, 0.0)
+	_builder.add_pick(name, hair_picker.l() * 0.01, hair_picker.c() * 0.01, hair_picker.h())
 	
 	var image = _builder.build()
 	var texture = ImageTexture.create_from_image(image)

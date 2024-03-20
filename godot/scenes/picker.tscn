@@ -1,24 +1,88 @@
-[gd_scene load_steps=2 format=3 uid="uid://iurnn12ppaut"]
+[gd_scene load_steps=3 format=3 uid="uid://iurnn12ppaut"]
 
 [ext_resource type="Script" path="res://scripts/picker.gd" id="1_5s3kw"]
+[ext_resource type="Texture2D" uid="uid://cp1cw1doj8up1" path="res://icon_palette.svg" id="2_ncx0d"]
 
-[node name="SelectButton" type="HBoxContainer" node_paths=PackedStringArray("label", "left_button", "right_button")]
+[node name="Picker" type="VBoxContainer" node_paths=PackedStringArray("label", "left_button", "right_button", "palette_button", "palette", "l_slider", "c_slider", "h_slider")]
 custom_minimum_size = Vector2(0, 32)
 script = ExtResource("1_5s3kw")
-label = NodePath("Label")
-left_button = NodePath("LeftButton")
-right_button = NodePath("RightButton")
+label = NodePath("Selector/Label")
+left_button = NodePath("Selector/LeftButton")
+right_button = NodePath("Selector/RightButton")
+palette_button = NodePath("Selector/PaletteButton")
+palette = NodePath("Palette")
+l_slider = NodePath("Palette/Lightness/Slider")
+c_slider = NodePath("Palette/Chroma/Slider")
+h_slider = NodePath("Palette/Hue/Slider")
 
-[node name="LeftButton" type="Button" parent="."]
+[node name="Selector" type="HBoxContainer" parent="."]
+layout_mode = 2
+
+[node name="LeftButton" type="Button" parent="Selector"]
 layout_mode = 2
 text = "<"
 
-[node name="Label" type="Label" parent="."]
+[node name="Label" type="Label" parent="Selector"]
 layout_mode = 2
 size_flags_horizontal = 3
 text = "None"
 horizontal_alignment = 1
 
-[node name="RightButton" type="Button" parent="."]
+[node name="RightButton" type="Button" parent="Selector"]
 layout_mode = 2
 text = ">"
+
+[node name="PaletteButton" type="Button" parent="Selector"]
+layout_mode = 2
+icon = ExtResource("2_ncx0d")
+
+[node name="Palette" type="VBoxContainer" parent="."]
+visible = false
+layout_mode = 2
+
+[node name="Lightness" type="HBoxContainer" parent="Palette"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="Palette/Lightness"]
+custom_minimum_size = Vector2(32, 0)
+layout_mode = 2
+text = "L*"
+
+[node name="Slider" type="HSlider" parent="Palette/Lightness"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 4
+min_value = -100.0
+step = 10.0
+
+[node name="Chroma" type="HBoxContainer" parent="Palette"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="Palette/Chroma"]
+custom_minimum_size = Vector2(32, 0)
+layout_mode = 2
+text = "C*"
+
+[node name="Slider" type="HSlider" parent="Palette/Chroma"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 4
+min_value = -40.0
+max_value = 40.0
+step = 4.0
+
+[node name="Hue" type="HBoxContainer" parent="Palette"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="Palette/Hue"]
+custom_minimum_size = Vector2(32, 0)
+layout_mode = 2
+text = "h°"
+
+[node name="Slider" type="HSlider" parent="Palette/Hue"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 4
+min_value = -180.0
+max_value = 180.0
+step = 18.0
