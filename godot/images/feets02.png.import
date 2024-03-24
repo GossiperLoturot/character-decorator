@@ -1,34 +1,14 @@
 [remap]
 
-importer="texture"
-type="CompressedTexture2D"
-uid="uid://dor5nnmxt4tti"
-path="res://.godot/imported/feets02.png-98a460704cfae6a7ea05c4537d7a755b.ctex"
-metadata={
-"vram_texture": false
-}
+importer="image"
+type="Image"
+uid="uid://sjk4jli8u07a"
+path="res://.godot/imported/feets02.png-98a460704cfae6a7ea05c4537d7a755b.image"
 
 [deps]
 
 source_file="res://images/feets02.png"
-dest_files=["res://.godot/imported/feets02.png-98a460704cfae6a7ea05c4537d7a755b.ctex"]
+dest_files=["res://.godot/imported/feets02.png-98a460704cfae6a7ea05c4537d7a755b.image"]
 
 [params]
 
-compress/mode=0
-compress/high_quality=false
-compress/lossy_quality=0.7
-compress/hdr_compression=1
-compress/normal_map=0
-compress/channel_pack=0
-mipmaps/generate=false
-mipmaps/limit=-1
-roughness/mode=0
-roughness/src_normal=""
-process/fix_alpha_border=true
-process/premult_alpha=false
-process/normal_map_invert_y=false
-process/hdr_as_srgb=false
-process/hdr_clamp_exposure=false
-process/size_limit=0
-detect_3d/compress_to=1

@@ -7,25 +7,25 @@ struct Extension;
 unsafe impl ExtensionLibrary for Extension {}
 
 struct ImageItem {
-    name: std::ffi::OsString,
-    data: image::RgbaImage,
+    name: String,
+    image: image::RgbaImage,
 }
 
 impl ImageItem {
-    fn new(name: std::ffi::OsString, data: image::RgbaImage) -> Self {
-        Self { name, data }
+    fn new(name: String, image: image::RgbaImage) -> Self {
+        Self { name, image }
     }
 }
 
 struct ImagePick {
-    name: std::ffi::OsString,
+    name: String,
     l: f32,
     c: f32,
     h: f32,
 }
 
 impl ImagePick {
-    fn new(name: std::ffi::OsString, l: f32, c: f32, h: f32) -> Self {
+    fn new(name: String, l: f32, c: f32, h: f32) -> Self {
         Self { name, l, c, h }
     }
 }
@@ -69,28 +69,37 @@ impl ImageBuilder {
     fn from_file(width: u32, height: u32, root_path: String) -> Gd<Self> {
         let mut items = vec![];
 
-        // through invalid entry
-        for entry in std::fs::read_dir(&root_path)
-            .unwrap_or_else(|_| panic!("failed to read dir {:?}", root_path))
-            .flatten()
-        {
-            let path = entry.path();
-            let Some(name) = path.file_stem() else {
-                println!("file name is nothing {:?}", path);
+        let mut dir = godot::engine::DirAccess::open(GString::from(&root_path))
+            .unwrap_or_else(|| panic!("failed to read dir {:?}", root_path));
+
+        for file_name in dir.get_files().to_vec() {
+            let file_name = file_name.to_string();
+            let file_path = format!("{}/{}", root_path, file_name);
+
+            let Some((file_stem, _)) = file_name.split_once('.') else {
+                println!("failed to parse file name {:?}", file_path);
                 continue;
             };
 
-            let Ok(data) = image::open(&path) else {
-                println!("failed to open image file {:?}", path);
+            let Ok(src_image) = try_load::<godot::engine::Image>(GString::from(&file_path)) else {
+                println!("failed to open image file {:?}", file_path);
                 continue;
             };
 
-            if data.width() != width || data.height() != height {
+            if src_image.get_width() as u32 != width || src_image.get_height() as u32 != height {
                 println!("image size must be {:?} x {:?}", width, height);
                 continue;
             }
 
-            items.push(ImageItem::new(name.into(), data.to_rgba8()));
+            let mut image = image::RgbaImage::new(width, height);
+            for y in 0..height {
+                for x in 0..width {
+                    let rgba = src_image.get_pixel(x as i32, y as i32);
+                    let rgba = image::Rgba([rgba.r8(), rgba.g8(), rgba.b8(), rgba.a8()]);
+                    image.put_pixel(x, y, rgba);
+                }
+            }
+            items.push(ImageItem::new(file_stem.to_string(), image));
         }
 
         Gd::from_init_fn(|base| Self {
@@ -123,28 +132,28 @@ impl ImageBuilder {
                 .find(|item| item.name == pick.name)
                 .unwrap_or_else(|| panic!("image is not found {:?}", pick.name));
 
-            let mut image = item.data.clone();
+            let mut image = item.image.clone();
+
             image
                 .pixels_mut()
-                .for_each(|rgba| hsv_shift_mut(rgba, pick.l, pick.c, pick.h));
+                .for_each(|rgba| oklcha_shift_mut(rgba, pick.l, pick.c, pick.h));
 
             image::imageops::overlay(&mut collect_image, &image, 0, 0);
         }
 
-        let mut gd_image = godot::engine::Image::new_gd();
-        gd_image.set_data(
-            self.width() as i32,
-            self.height() as i32,
+        godot::engine::Image::create_from_data(
+            self.width as i32,
+            self.height as i32,
             false,
             godot::engine::image::Format::RGBA8,
-            PackedByteArray::from_iter(collect_image.iter().cloned()),
-        );
-        gd_image
+            PackedByteArray::from(collect_image.to_vec().as_slice()),
+        )
+        .unwrap()
     }
 }
 
-fn hsv_shift_mut(rgba: &mut image::Rgba<u8>, l: f32, c: f32, h: f32) {
-    let [r, g, b, a] = &mut rgba.0;
+fn oklcha_shift_mut(rgba: &mut image::Rgba<u8>, l: f32, c: f32, h: f32) {
+    let image::Rgba([r, g, b, a]) = rgba;
 
     let rgba = palette::Srgba::new(
         *r as f32 / 255.0,
@@ -159,7 +168,6 @@ fn hsv_shift_mut(rgba: &mut image::Rgba<u8>, l: f32, c: f32, h: f32) {
     oklcha.hue += h;
 
     let rgba = palette::Srgba::from_color(oklcha);
-
     *r = (rgba.red * 255.0) as u8;
     *g = (rgba.green * 255.0) as u8;
     *b = (rgba.blue * 255.0) as u8;

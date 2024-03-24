@@ -1,34 +1,14 @@
 [remap]
 
-importer="texture"
-type="CompressedTexture2D"
-uid="uid://jnfyfnhvf08m"
-path="res://.godot/imported/base00.png-ec3b010923ad4fdd1f0532c2f9e45877.ctex"
-metadata={
-"vram_texture": false
-}
+importer="image"
+type="Image"
+uid="uid://b6ah0w0q2dcok"
+path="res://.godot/imported/base00.png-ec3b010923ad4fdd1f0532c2f9e45877.image"
 
 [deps]
 
 source_file="res://images/base00.png"
-dest_files=["res://.godot/imported/base00.png-ec3b010923ad4fdd1f0532c2f9e45877.ctex"]
+dest_files=["res://.godot/imported/base00.png-ec3b010923ad4fdd1f0532c2f9e45877.image"]
 
 [params]
 
-compress/mode=0
-compress/high_quality=false
-compress/lossy_quality=0.7
-compress/hdr_compression=1
-compress/normal_map=0
-compress/channel_pack=0
-mipmaps/generate=false
-mipmaps/limit=-1
-roughness/mode=0
-roughness/src_normal=""
-process/fix_alpha_border=true
-process/premult_alpha=false
-process/normal_map_invert_y=false
-process/hdr_as_srgb=false
-process/hdr_clamp_exposure=false
-process/size_limit=0
-detect_3d/compress_to=1

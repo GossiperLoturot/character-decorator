@@ -19,7 +19,7 @@ var _builder: ImageBuilder
 
 
 func _ready():
-	_builder = ImageBuilder.from_file(192, 192, "images")
+	_builder = ImageBuilder.from_file(192, 192, "res://images")
 	
 	base_picker.set_property("Base: %s", 2)
 	hair_picker.set_property("Hair: %s", 5)
