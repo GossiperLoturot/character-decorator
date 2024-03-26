@@ -3,3 +3,6 @@ godot/.godot/
 
 # Cargo
 rust/target/
+
+# Godot build
+build/

@@ -1,0 +1,142 @@
+[gd_resource type="ImageBuilderDesc" load_steps=55 format=3 uid="uid://cdmkjbhsbsw21"]
+
+[ext_resource type="Image" uid="uid://b6ah0w0q2dcok" path="res://images/base00.png" id="1_org1a"]
+[ext_resource type="Image" uid="uid://dg0did8w7fqqg" path="res://images/base01.png" id="2_rnn8q"]
+[ext_resource type="Image" uid="uid://dekce1xbvk2c7" path="res://images/bottom00.png" id="3_3ph7u"]
+[ext_resource type="Image" uid="uid://bprltl6y2qj0u" path="res://images/bottom01.png" id="4_b3pir"]
+[ext_resource type="Image" uid="uid://b8ixw7we28hvd" path="res://images/bottom02.png" id="5_kuog6"]
+[ext_resource type="Image" uid="uid://cn8yfoxb447uw" path="res://images/eyes00.png" id="6_7ntq7"]
+[ext_resource type="Image" uid="uid://blvpsrnqxnvdx" path="res://images/eyes01.png" id="7_rh7o8"]
+[ext_resource type="Image" uid="uid://bku612eyua1ja" path="res://images/eyes02.png" id="8_qvs3x"]
+[ext_resource type="Image" uid="uid://bslxtu0gwv2bb" path="res://images/feets00.png" id="9_oq6kr"]
+[ext_resource type="Image" uid="uid://d1a6niox5t2r4" path="res://images/feets01.png" id="10_pmog6"]
+[ext_resource type="Image" uid="uid://sjk4jli8u07a" path="res://images/feets02.png" id="11_pq236"]
+[ext_resource type="Image" uid="uid://c4yuhl50808ee" path="res://images/hairback00.png" id="12_3f5n7"]
+[ext_resource type="Image" uid="uid://mk3x2wtwjlbo" path="res://images/hairback01.png" id="13_iasnt"]
+[ext_resource type="Image" uid="uid://cbpx0wm8kslm1" path="res://images/hairback02.png" id="14_ckv4k"]
+[ext_resource type="Image" uid="uid://d4bnb4el4a5pq" path="res://images/hairback03.png" id="15_50g0n"]
+[ext_resource type="Image" uid="uid://dlvx14b44chqm" path="res://images/hairback04.png" id="16_uuvf4"]
+[ext_resource type="Image" uid="uid://tb1l3yvfatlk" path="res://images/hairfront00.png" id="17_vk1nc"]
+[ext_resource type="Image" uid="uid://cbw5ui5sxnj6j" path="res://images/hairfront01.png" id="18_r26et"]
+[ext_resource type="Image" uid="uid://be36hxrv8v68s" path="res://images/hairfront02.png" id="19_kq50f"]
+[ext_resource type="Image" uid="uid://ymkerspccuj4" path="res://images/hairfront03.png" id="20_kwea8"]
+[ext_resource type="Image" uid="uid://dl5erj4cmjrfv" path="res://images/hairfront04.png" id="21_7t644"]
+[ext_resource type="Image" uid="uid://ce8jk255e3w6t" path="res://images/iris00.png" id="22_hhqj2"]
+[ext_resource type="Image" uid="uid://bi5pgnj8gjym" path="res://images/iris01.png" id="23_t08ve"]
+[ext_resource type="Image" uid="uid://bqb0abjku7v43" path="res://images/iris02.png" id="24_grcoh"]
+[ext_resource type="Image" uid="uid://xxp4c50je6gw" path="res://images/top00.png" id="25_ex5g6"]
+[ext_resource type="Image" uid="uid://b8n4xj0eakni5" path="res://images/top01.png" id="26_fti88"]
+[ext_resource type="Image" uid="uid://5kwge2w3ti8q" path="res://images/top02.png" id="27_knge3"]
+
+[sub_resource type="ImageBuilderDescItem" id="ImageBuilderDescItem_3piou"]
+name = "base00"
+image = ExtResource("1_org1a")
+
+[sub_resource type="ImageBuilderDescItem" id="ImageBuilderDescItem_nw32q"]
+name = "base01"
+image = ExtResource("2_rnn8q")
+
+[sub_resource type="ImageBuilderDescItem" id="ImageBuilderDescItem_k3hae"]
+name = "bottom00"
+image = ExtResource("3_3ph7u")
+
+[sub_resource type="ImageBuilderDescItem" id="ImageBuilderDescItem_yc4s0"]
+name = "bottom01"
+image = ExtResource("4_b3pir")
+
+[sub_resource type="ImageBuilderDescItem" id="ImageBuilderDescItem_dpk2k"]
+name = "bottom02"
+image = ExtResource("5_kuog6")
+
+[sub_resource type="ImageBuilderDescItem" id="ImageBuilderDescItem_qgqnt"]
+name = "eyes00"
+image = ExtResource("6_7ntq7")
+
+[sub_resource type="ImageBuilderDescItem" id="ImageBuilderDescItem_c7m52"]
+name = "eyes01"
+image = ExtResource("7_rh7o8")
+
+[sub_resource type="ImageBuilderDescItem" id="ImageBuilderDescItem_87c56"]
+name = "eyes02"
+image = ExtResource("8_qvs3x")
+
+[sub_resource type="ImageBuilderDescItem" id="ImageBuilderDescItem_hbm7h"]
+name = "feets00"
+image = ExtResource("9_oq6kr")
+
+[sub_resource type="ImageBuilderDescItem" id="ImageBuilderDescItem_glwed"]
+name = "feets01"
+image = ExtResource("10_pmog6")
+
+[sub_resource type="ImageBuilderDescItem" id="ImageBuilderDescItem_cr4rk"]
+name = "feets02"
+image = ExtResource("11_pq236")
+
+[sub_resource type="ImageBuilderDescItem" id="ImageBuilderDescItem_wusdj"]
+name = "hairback00"
+image = ExtResource("12_3f5n7")
+
+[sub_resource type="ImageBuilderDescItem" id="ImageBuilderDescItem_5sian"]
+name = "hairback01"
+image = ExtResource("13_iasnt")
+
+[sub_resource type="ImageBuilderDescItem" id="ImageBuilderDescItem_f62xf"]
+name = "hairback02"
+image = ExtResource("14_ckv4k")
+
+[sub_resource type="ImageBuilderDescItem" id="ImageBuilderDescItem_y16os"]
+name = "hairback03"
+image = ExtResource("15_50g0n")
+
+[sub_resource type="ImageBuilderDescItem" id="ImageBuilderDescItem_xhyup"]
+name = "hairback04"
+image = ExtResource("16_uuvf4")
+
+[sub_resource type="ImageBuilderDescItem" id="ImageBuilderDescItem_mlilt"]
+name = "hairfront00"
+image = ExtResource("17_vk1nc")
+
+[sub_resource type="ImageBuilderDescItem" id="ImageBuilderDescItem_bg5aj"]
+name = "hairfront01"
+image = ExtResource("18_r26et")
+
+[sub_resource type="ImageBuilderDescItem" id="ImageBuilderDescItem_tnoy4"]
+name = "hairfront02"
+image = ExtResource("19_kq50f")
+
+[sub_resource type="ImageBuilderDescItem" id="ImageBuilderDescItem_ue3w8"]
+name = "hairfront03"
+image = ExtResource("20_kwea8")
+
+[sub_resource type="ImageBuilderDescItem" id="ImageBuilderDescItem_htid6"]
+name = "hairfront04"
+image = ExtResource("21_7t644")
+
+[sub_resource type="ImageBuilderDescItem" id="ImageBuilderDescItem_ed0el"]
+name = "iris00"
+image = ExtResource("22_hhqj2")
+
+[sub_resource type="ImageBuilderDescItem" id="ImageBuilderDescItem_1vmk3"]
+name = "iris01"
+image = ExtResource("23_t08ve")
+
+[sub_resource type="ImageBuilderDescItem" id="ImageBuilderDescItem_nerpl"]
+name = "iris02"
+image = ExtResource("24_grcoh")
+
+[sub_resource type="ImageBuilderDescItem" id="ImageBuilderDescItem_cwj0h"]
+name = "top00"
+image = ExtResource("25_ex5g6")
+
+[sub_resource type="ImageBuilderDescItem" id="ImageBuilderDescItem_n6dw6"]
+name = "top01"
+image = ExtResource("26_fti88")
+
+[sub_resource type="ImageBuilderDescItem" id="ImageBuilderDescItem_kl2vo"]
+name = "top02"
+image = ExtResource("27_knge3")
+
+[resource]
+width = 192
+height = 192
+items = Array[ImageBuilderDescItem]([SubResource("ImageBuilderDescItem_3piou"), SubResource("ImageBuilderDescItem_nw32q"), SubResource("ImageBuilderDescItem_k3hae"), SubResource("ImageBuilderDescItem_yc4s0"), SubResource("ImageBuilderDescItem_dpk2k"), SubResource("ImageBuilderDescItem_qgqnt"), SubResource("ImageBuilderDescItem_c7m52"), SubResource("ImageBuilderDescItem_87c56"), SubResource("ImageBuilderDescItem_hbm7h"), SubResource("ImageBuilderDescItem_glwed"), SubResource("ImageBuilderDescItem_cr4rk"), SubResource("ImageBuilderDescItem_wusdj"), SubResource("ImageBuilderDescItem_5sian"), SubResource("ImageBuilderDescItem_f62xf"), SubResource("ImageBuilderDescItem_y16os"), SubResource("ImageBuilderDescItem_xhyup"), SubResource("ImageBuilderDescItem_mlilt"), SubResource("ImageBuilderDescItem_bg5aj"), SubResource("ImageBuilderDescItem_tnoy4"), SubResource("ImageBuilderDescItem_ue3w8"), SubResource("ImageBuilderDescItem_htid6"), SubResource("ImageBuilderDescItem_ed0el"), SubResource("ImageBuilderDescItem_1vmk3"), SubResource("ImageBuilderDescItem_nerpl"), SubResource("ImageBuilderDescItem_cwj0h"), SubResource("ImageBuilderDescItem_n6dw6"), SubResource("ImageBuilderDescItem_kl2vo")])

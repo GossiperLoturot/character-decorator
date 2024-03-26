@@ -31,26 +31,32 @@ impl ImagePick {
 }
 
 #[derive(GodotClass)]
-#[class(base=Node)]
+#[class(init, base=Resource)]
+struct ImageBuilderDescItem {
+    #[export]
+    name: GString,
+    #[export]
+    image: Gd<godot::engine::Image>,
+}
+
+#[derive(GodotClass)]
+#[class(init, base=Resource)]
+struct ImageBuilderDesc {
+    #[export]
+    width: u32,
+    #[export]
+    height: u32,
+    #[export]
+    items: Array<Gd<ImageBuilderDescItem>>,
+}
+
+#[derive(GodotClass)]
+#[class(no_init, base=RefCounted)]
 struct ImageBuilder {
     width: u32,
     height: u32,
     items: Vec<ImageItem>,
     picks: Vec<ImagePick>,
-    base: Base<Node>,
-}
-
-#[godot_api]
-impl INode for ImageBuilder {
-    fn init(base: Base<Self::Base>) -> Self {
-        Self {
-            width: Default::default(),
-            height: Default::default(),
-            items: Default::default(),
-            picks: Default::default(),
-            base,
-        }
-    }
 }
 
 #[godot_api]
@@ -66,31 +72,22 @@ impl ImageBuilder {
     }
 
     #[func]
-    fn from_file(width: u32, height: u32, root_path: String) -> Gd<Self> {
+    fn from_desc(desc: Gd<ImageBuilderDesc>) -> Gd<Self> {
         let mut items = vec![];
 
-        let mut dir = godot::engine::DirAccess::open(GString::from(&root_path))
-            .unwrap_or_else(|| panic!("failed to read dir {:?}", root_path));
+        let width = desc.bind().width;
+        let height = desc.bind().height;
 
-        for file_name in dir.get_files().to_vec() {
-            let file_name = file_name.to_string();
-            let file_path = format!("{}/{}", root_path, file_name);
-
-            let Some((file_stem, _)) = file_name.split_once('.') else {
-                println!("failed to parse file name {:?}", file_path);
-                continue;
-            };
-
-            let Ok(src_image) = try_load::<godot::engine::Image>(GString::from(&file_path)) else {
-                println!("failed to open image file {:?}", file_path);
-                continue;
-            };
+        for item in desc.bind().items.iter_shared() {
+            let src_name = &item.bind().name;
+            let src_image = &item.bind().image;
 
             if src_image.get_width() as u32 != width || src_image.get_height() as u32 != height {
                 println!("image size must be {:?} x {:?}", width, height);
                 continue;
             }
 
+            let name = src_name.to_string();
             let mut image = image::RgbaImage::new(width, height);
             for y in 0..height {
                 for x in 0..width {
@@ -99,25 +96,24 @@ impl ImageBuilder {
                     image.put_pixel(x, y, rgba);
                 }
             }
-            items.push(ImageItem::new(file_stem.to_string(), image));
+            items.push(ImageItem::new(name, image));
         }
 
-        Gd::from_init_fn(|base| Self {
+        Gd::from_init_fn(|_| Self {
             width,
             height,
             items,
             picks: vec![],
-            base,
         })
     }
 
     #[func]
-    fn add_pick(&mut self, name: String, l: f32, c: f32, h: f32) {
-        self.picks.push(ImagePick::new(name.into(), l, c, h));
+    fn pick_image(&mut self, name: GString, l: f32, c: f32, h: f32) {
+        self.picks.push(ImagePick::new(name.to_string(), l, c, h));
     }
 
     #[func]
-    fn clear_pick(&mut self) {
+    fn clear_image(&mut self) {
         self.picks.clear();
     }
 

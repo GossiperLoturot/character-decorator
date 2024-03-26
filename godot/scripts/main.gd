@@ -15,11 +15,12 @@ extends Node
 @export var walk_button: Button
 @export var flip_button: Button
 
+@export var builder_desc: ImageBuilderDesc
 var _builder: ImageBuilder
 
 
 func _ready():
-	_builder = ImageBuilder.from_file(192, 192, "res://images")
+	_builder = ImageBuilder.from_desc(builder_desc)
 	
 	base_picker.set_property("Base: %s", 2)
 	hair_picker.set_property("Hair: %s", 5)
@@ -44,26 +45,26 @@ func _ready():
 
 
 func update_character():
-	_builder.clear_pick()
+	_builder.clear_image()
 	
 	var name = ""
 	
 	name = ["hairback00", "hairback01", "hairback02", "hairback03", "hairback04"][hair_picker.index()]
-	_builder.add_pick(name, hair_picker.l() * 0.01, hair_picker.c() * 0.01, hair_picker.h())
+	_builder.pick_image(name, hair_picker.l() * 0.01, hair_picker.c() * 0.01, hair_picker.h())
 	name = ["base00", "base01"][base_picker.index()]
-	_builder.add_pick(name, base_picker.l() * 0.01, base_picker.c() * 0.01, base_picker.h())
+	_builder.pick_image(name, base_picker.l() * 0.01, base_picker.c() * 0.01, base_picker.h())
 	name = ["eyes00", "eyes01", "eyes02"][eyes_picker.index()]
-	_builder.add_pick(name, 0.0, 0.0, 0.0)
+	_builder.pick_image(name, 0.0, 0.0, 0.0)
 	name = ["iris00", "iris01", "iris02"][eyes_picker.index()]
-	_builder.add_pick(name, eyes_picker.l() * 0.01, eyes_picker.c() * 0.01, eyes_picker.h())
+	_builder.pick_image(name, eyes_picker.l() * 0.01, eyes_picker.c() * 0.01, eyes_picker.h())
 	name = ["bottom00", "bottom01", "bottom02"][bottom_picker.index()]
-	_builder.add_pick(name, bottom_picker.l() * 0.01, bottom_picker.c() * 0.01, bottom_picker.h())
+	_builder.pick_image(name, bottom_picker.l() * 0.01, bottom_picker.c() * 0.01, bottom_picker.h())
 	name = ["top00", "top01", "top02"][top_picker.index()]
-	_builder.add_pick(name, top_picker.l() * 0.01, top_picker.c() * 0.01, top_picker.h())
+	_builder.pick_image(name, top_picker.l() * 0.01, top_picker.c() * 0.01, top_picker.h())
 	name = ["feets00", "feets01", "feets02"][feets_picker.index()]
-	_builder.add_pick(name, feets_picker.l() * 0.01, feets_picker.c() * 0.01, feets_picker.h())
+	_builder.pick_image(name, feets_picker.l() * 0.01, feets_picker.c() * 0.01, feets_picker.h())
 	name = ["hairfront00", "hairfront01", "hairfront02", "hairfront03", "hairfront04"][hair_picker.index()]
-	_builder.add_pick(name, hair_picker.l() * 0.01, hair_picker.c() * 0.01, hair_picker.h())
+	_builder.pick_image(name, hair_picker.l() * 0.01, hair_picker.c() * 0.01, hair_picker.h())
 	
 	var image = _builder.build()
 	var texture = ImageTexture.create_from_image(image)

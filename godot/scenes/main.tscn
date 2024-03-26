@@ -1,8 +1,9 @@
-[gd_scene load_steps=6 format=3 uid="uid://c0eh527yekitw"]
+[gd_scene load_steps=7 format=3 uid="uid://c0eh527yekitw"]
 
 [ext_resource type="Theme" uid="uid://fqsmqojxkx0v" path="res://theme.tres" id="1_xsa7r"]
 [ext_resource type="PackedScene" uid="uid://iurnn12ppaut" path="res://scenes/picker.tscn" id="2_7uvr4"]
 [ext_resource type="Script" path="res://scripts/main.gd" id="2_ocsdt"]
+[ext_resource type="ImageBuilderDesc" uid="uid://cdmkjbhsbsw21" path="res://image_builder.tres" id="3_e35o4"]
 [ext_resource type="Script" path="res://scripts/character.gd" id="4_yyw7w"]
 
 [sub_resource type="ViewportTexture" id="ViewportTexture_wog4e"]
@@ -28,6 +29,7 @@ default_button = NodePath("Container/Body/InterfaceContainer/Interface/DefaultBu
 idle_button = NodePath("Container/Body/InterfaceContainer/Interface/IdleButton")
 walk_button = NodePath("Container/Body/InterfaceContainer/Interface/WalkButton")
 flip_button = NodePath("Container/Body/InterfaceContainer/Interface/FlipButton")
+builder_desc = ExtResource("3_e35o4")
 
 [node name="Panel" type="Panel" parent="."]
 layout_mode = 1
